@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# A small browser kiosk based on Linux for public access points
+#
+# @file browser-kiosk
+# @description browser-kiosk wrapper
+# @version v1.0
+# @author Innovarew <innovarew.solutions (at) gmail (dot) com> (c) Copyright 2017.
+# @copyright (C) 2017 Innovarew Solutions. All Rights Reserved.
+# @url https://innovarew.appspot.com
+#
+# Contact us if you are interested in using our products and services.
+
+machine=`uname -m`
+dirname=`dirname $0`
+basename=`basename $0`
+execfile=$dirname/$machine/$basename.$machine
+
+# find the proper architecture
+if [ -x $execfile ]
+then
+    $execfile "$@"
+else
+    echo "Not found $execfile"
+fi
