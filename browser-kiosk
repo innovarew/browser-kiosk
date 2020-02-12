@@ -14,6 +14,10 @@
 machine=`uname -m`
 dirname=`dirname $0`
 basename=`basename $0`
+
+# Follow the symlink
+[ -L $0 ] && dirname=$dirname/`stat $0 | awk '/^  File:/ {system("dirname "$NF);}'`
+
 execfile=$dirname/$machine/$basename.$machine
 
 # find the proper architecture
