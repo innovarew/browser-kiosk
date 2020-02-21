@@ -10,6 +10,10 @@
 # @url https://innovarew.appspot.com
 #
 # Contact us if you are interested in using our products and services.
+#
+
+set -euf -o pipefail
+export LANG=C
 
 machine=`uname -m`
 dirname=`dirname $0`
@@ -18,12 +22,11 @@ basename=browser-kiosk
 # Follow the symlink
 [ -L $0 ] && dirname=`stat $0 | awk '/^  File:/ {system("dirname "$NF);}'`
 
-execfile=$dirname/$machine/$basename.$machine
-
 # find the proper architecture
-if [ -x $execfile ]
+execfile=$dirname/$machine/$basename.$machine
+if [ ! -x $execfile ]
 then
-    $execfile "$@"
-else
-    echo "Not found $execfile"
+    echo "Not found $execfile" && exit
 fi
+
+$execfile "$@"
