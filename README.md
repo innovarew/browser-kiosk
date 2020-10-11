@@ -1,4 +1,4 @@
-### browser-kiosk: A small browser kiosk running Linux for public access points
+### browser-kiosk: A browser kiosk running Linux for public access
 
 Quick Setup instructions:
 
