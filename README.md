@@ -1,6 +1,6 @@
 ### browser-kiosk: A browser kiosk running Linux for public access
 
-Quick Setup instructions:
+#### Quick Setup instructions:
 
 - Clone the browser-kiosk repo: `git clone https://github.com/innovarew/browser-kiosk.git`
 - Install the browser-kiosk running `cd browser-kiosk && ./browser-kiosk-setup setup`
